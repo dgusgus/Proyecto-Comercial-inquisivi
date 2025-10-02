@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Promociones</title>
+  <style>
+    /* -------- PALETA DE ADQUISICIÓN --------
+       Fondo principal: #f1e4d3
+       Texto: #3B2A1D
+       Encabezado y pie: #8B5E3C
+       Tonos secundarios: #d8b693, #caa17d, #f6e7d9, #f0d9c3
+       WhatsApp: #25D366
+    --------------------------------------- */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f1e4d3;
+      color: #3B2A1D;
+    }
+
+    /* HEADER */
+    header {
+      background-color: #8B5E3C;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 1.8rem;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .topbar a {
+      text-decoration: none;
+    }
+
+    .topbar button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding: 8px 12px;
+      transition: color 0.3s ease;
+    }
+
+    .topbar button::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #d8b693;
+      transition: width 0.3s ease;
+    }
+
+    .topbar button:hover {
+      color: #d8b693;
+    }
+
+    .topbar button:hover::after {
+      width: 100%;
+    }
+
+    /* MAIN */
+    main {
+      padding: 30px;
+      text-align: center;
+      font-size: 1.2rem;
+      background-color: #f6e7d9;
+      border-radius: 12px;
+      margin: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* GRID DE PROMOCIONES */
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
+
+    /* TARJETA */
+    .card {
+      background-color: #f0d9c3;
+      border: 2px solid #d8b693;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 3px dashed #d8b693;
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      color: #3B2A1D;
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #3B2A1D;
+      text-align: center;
+      margin: 0 15px 15px 15px;
+    }
+
+    /* BOTÓN */
+    .card .boton {
+      display: block;
+      margin: 15px auto 20px auto;
+      background: linear-gradient(135deg, #caa17d, #d8b693);
+      color: #3B2A1D;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    .card .boton:hover {
+      background: linear-gradient(135deg, #d8b693, #caa17d);
+      transform: scale(1.05);
+      color: #000;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #8B5E3C;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    /* BOTÓN WHATSAPP */
+    
+    .whatsapp-btn {
+      display:inline-block;
+      background-color:#25D366;
+      color:#fff;
+      padding:12px 20px;
+      border-radius:30px;
+      font-weight:bold;
+      text-decoration:none;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color:#1ebe5d;
+      transform:scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Promociones</h1>
+    <div class="topbar">
+      <a href="Inicio.html"><button>Inicio</button></a>
+      <a href="Importacion.html"><button>Importación</button></a>
+      <a href="Promociones.html"><button>Promociones</button></a>
+      <a href="Novedades.html"><button>Novedades</button></a>
+      <a href="Adquisicion.html"><button>Adquisición</button></a>
+      <a href="Usuario.html"><button>Usuario</button></a>
+    </div>
+  </header>
+
+  <main>
+    <p>Bienvenido a nuestro apartado de Promociones. Aquí podrá descubrir las mejores ofertas disponibles.</p>
+  </main>
+
+  <div class="contenedor">
+    <div class="card">
+      <img src="Callapo.jpg" alt="Promoción Envío Gratis">
+      <h2>ENVÍO GRATIS</h2>
+      <p>Obtén tus productos sin costo adicional en el envío.</p>
+      <a href="Adquisicion.html"><button class="boton">ADQUIRIR</button></a>
+    </div>
+
+    <div class="card">
+      <img src="MaderaLabrada.jpg" alt="Descuento por compra al por mayor">
+      <h2>DESCUENTO POR MAYOR</h2>
+      <p>Aprovecha precios especiales al comprar en grandes cantidades.</p>
+      <a href="Adquisicion.html"><button class="boton">ADQUIRIR</button></a>
+    </div>
+
+    <div class="card">
+      <img src="Durmientes.jpg" alt="Oferta por tiempo limitado">
+      <h2>OFERTA LIMITADA</h2>
+      <p>Promoción válida solo por tiempo limitado, ¡aprovéchala ahora!</p>
+      <a href="file:///C:/Users/usuario/Desktop/KasBrit/Mision.html"><button class="boton">Misión</button></a>
+    </div>
+  </div>
+
+  <footer>
+   &copy; 2025 Comercial Inquisivi - Importación Sustentable
+  <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
+    💬 Contáctanos por WhatsApp
+  </footer>
+
+</body>
+</html>

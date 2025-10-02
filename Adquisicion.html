@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Adquisición</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f1e4d3; color: #3B2A1D; }
+
+    header {
+      background-color: #8B5E3C; padding: 15px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      box-shadow:0 4px 12px rgba(0,0,0,0.25);
+    }
+    header h1 { color:#fff; font-size:1.8rem; }
+    .topbar { display:flex; gap:1.2rem; }
+    .topbar a { text-decoration:none; }
+    .topbar button {
+      background:transparent; border:none; color:#fff; font-weight:bold;
+      font-size:1rem; cursor:pointer; position:relative; padding:8px 12px; transition: color 0.3s ease;
+    }
+    .topbar button::after {
+      content:""; position:absolute; bottom:0; left:0; width:0; height:2px;
+      background-color:#d8b693; transition: width 0.3s ease;
+    }
+    .topbar button:hover { color:#f4e0cc; }
+    .topbar button:hover::after { width:100%; }
+
+    main {
+      padding:30px; text-align:center; font-size:1.2rem; 
+      background-color:#d8b693; border-radius:12px; margin:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .contenedor {
+      display:flex; justify-content:center; align-items:center; padding:40px 20px;
+    }
+    .producto {
+      border:2px solid #caa17d; padding:30px;
+      background-color:#f6e7d9; width:100%; max-width:800px;
+      border-radius:15px; text-align:center; box-shadow:0 0 18px rgba(0,0,0,0.2);
+    }
+
+    /* CARRUSEL */
+    .imagen {
+      display:flex; align-items:center; justify-content:space-between;
+      border:2px solid #caa17d; padding:10px; height:300px;
+      margin-bottom:20px; background-color:#f0d9c3; border-radius:10px;
+    }
+    .imagen-contenido img { max-height:260px; max-width:100%; object-fit:contain; }
+    .flecha {
+      background:none; border:none; font-size:30px; color:#8B5E3C;
+      cursor:pointer; transition: color 0.3s;
+    }
+    .flecha:hover { color:#3B2A1D; }
+
+    .puntos { text-align:center; margin:15px 0; }
+    .punto { display:inline-block; width:12px; height:12px; margin:0 5px;
+      border-radius:50%; background-color:#8B5E3C; opacity:0.4;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .punto.activo { opacity:1; transform:scale(1.2); }
+
+    .nombre-producto { text-align:center; font-size:28px; color:#3B2A1D; margin-bottom:10px; }
+    .detalles { font-size:18px; margin-bottom:20px; text-align:left; color:#3B2A1D; }
+    .detalles p, .detalles ul { margin-left:20px; }
+
+    .boton-carrito {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:15px;
+      border-top:2px solid #caa17d; padding-top:20px; margin-top:20px;
+    }
+    .boton-carrito button {
+      background:linear-gradient(135deg, #8B5E3C, #caa17d);
+      color:#fff; border:none; padding:12px 24px; font-size:16px;
+      font-weight:bold; cursor:pointer; border-radius:25px; transition:all 0.3s ease;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+    .boton-carrito button:hover {
+      background:linear-gradient(135deg, #caa17d, #8B5E3C); transform:scale(1.05);
+    }
+
+    footer { 
+      background-color:#8B5E3C; 
+      color:#fff; 
+      padding:20px; 
+      text-align:center; 
+      margin-top:30px; 
+      display:flex; 
+      flex-direction:column; 
+      align-items:center; 
+      gap:10px;
+    }
+
+    .whatsapp-btn {
+      display:inline-block;
+      background-color:#25D366;
+      color:#fff;
+      padding:12px 20px;
+      border-radius:30px;
+      font-weight:bold;
+      text-decoration:none;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color:#1ebe5d;
+      transform:scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sección de Adquisición</h1>
+  <div class="topbar">
+    <a href="Inicio.html"><button>Inicio</button></a>
+    <a href="Importacion.html"><button>Importación</button></a>
+    <a href="Promociones.html"><button>Promociones</button></a>
+    <a href="Novedades.html"><button>Novedades</button></a>
+    <a href="Adquisicion.html"><button>Adquisición</button></a>
+    <a href="Usuario.html"><button>Usuario</button></a>
+  </div>
+</header>
+
+<main>
+  <p>Bienvenido a nuestra sección de adquisición de productos. Visualice características y regístrese para más información.</p>
+</main>
+
+<div class="contenedor">
+  <div class="producto">
+    <div class="imagen">
+      <button class="flecha izquierda">&lt;</button>
+      <div class="imagen-contenido">
+        <img id="imagen-carrusel" src="" alt="Producto">
+      </div>
+      <button class="flecha derecha">&gt;</button>
+    </div>
+
+    <div class="puntos" id="puntos-carrusel"></div>
+
+    <h2 class="nombre-producto">Nombre Producto</h2>
+
+    <div class="detalles"></div>
+
+    <div class="boton-carrito">
+      <a href="Usuario.html"><button>Registrarse</button></a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Comercial Inquisivi - Adquisición Sustentable
+  <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
+    💬 Contáctanos por WhatsApp
+  </a>
+</footer>
+
+<script>
+const productos = [
+  { imagen: 'FotoMadera1.jpg', nombre: 'Callapo', precio: '$99.99', medidas: '120x60x40 cm', unidades: 50 },
+  { imagen: 'FotoMadera2.jpg', nombre: 'Madera Labrada', precio: '$149.99', medidas: '150x70x50 cm', unidades: 30 },
+  { imagen: 'FotoMadera3.jpg', nombre: 'Durmiente', precio: '$199.99', medidas: '160x80x55 cm', unidades: 20 }
+];
+
+let indiceActual = 0;
+const imgElemento = document.getElementById('imagen-carrusel');
+const puntosContenedor = document.getElementById('puntos-carrusel');
+const btnIzq = document.querySelector('.flecha.izquierda');
+const btnDer = document.querySelector('.flecha.derecha');
+const nombreProducto = document.querySelector('.nombre-producto');
+const detalles = document.querySelector('.detalles');
+
+// Crear puntos según cantidad de productos
+productos.forEach((_, i) => {
+  const punto = document.createElement('span');
+  punto.classList.add('punto');
+  if(i === 0) punto.classList.add('activo');
+  punto.addEventListener('click', () => {
+    indiceActual = i;
+    mostrarProducto(indiceActual);
+  });
+  puntosContenedor.appendChild(punto);
+});
+
+function mostrarProducto(indice) {
+  const producto = productos[indice];
+  imgElemento.src = producto.imagen;
+  nombreProducto.textContent = producto.nombre;
+  detalles.innerHTML = `
+    <p><strong>Precio:</strong> ${producto.precio}</p>
+    <p><strong>Dimensiones:</strong></p>
+    <ul>
+      <li>Medidas: ${producto.medidas}</li>
+      <li>Unidades disponibles: ${producto.unidades}</li>
+    </ul>
+  `;
+  const puntos = document.querySelectorAll('.punto');
+  puntos.forEach((p, i) => p.classList.toggle('activo', i === indice));
+}
+
+btnIzq.addEventListener('click', () => {
+  indiceActual = (indiceActual - 1 + productos.length) % productos.length;
+  mostrarProducto(indiceActual);
+});
+
+btnDer.addEventListener('click', () => {
+  indiceActual = (indiceActual + 1) % productos.length;
+  mostrarProducto(indiceActual);
+});
+
+mostrarProducto(indiceActual);
+</script>
+
+</body>
+</html>

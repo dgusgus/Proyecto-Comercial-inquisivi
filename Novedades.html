@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Novedades</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+    body { background-color: #f1e4d3; color: #3B2A1D; }
+
+    /* HEADER */
+    header {
+      background-color: #8B5E3C;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    header h1 { color: #fff; font-size: 1.8rem; }
+
+    /* TOPBAR */
+    .topbar { display: flex; gap: 1.2rem; }
+
+    .topbar a { text-decoration: none; }
+
+    .topbar button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding: 8px 12px;
+      transition: color 0.3s ease;
+    }
+
+    .topbar button::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #d8b693;
+      transition: width 0.3s ease;
+    }
+
+    .topbar button:hover { color: #f4e0cc; }
+    .topbar button:hover::after { width: 100%; }
+
+    /* MAIN */
+    main {
+      padding: 25px;
+      text-align: center;
+      font-size: 1.2rem;
+      background-color: #d8b693;
+      border-radius: 12px;
+      margin: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* PRODUCTO (Carrusel) */
+    .contenedor { display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
+
+    .producto {
+      border: 2px solid #caa17d;
+      padding: 30px;
+      background-color: #f6e7d9;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 18px rgba(0,0,0,0.2);
+    }
+
+    .producto h2 { color: #3B2A1D; font-size: 28px; margin-bottom: 20px; }
+
+    .slider { display: flex; align-items: center; justify-content: space-between; margin: 20px 0; }
+
+    .flecha {
+      background: none;
+      border: none;
+      font-size: 30px;
+      color: #8B5E3C;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .flecha:hover { color: #3B2A1D; }
+
+    .imagen {
+      flex: 1;
+      height: 300px;
+      margin: 0 20px;
+      border: 2px solid #caa17d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0d9c3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .imagen img { max-height: 260px; max-width: 100%; object-fit: contain; }
+
+    .puntos { text-align: center; margin: 15px 0; }
+    .punto { display: inline-block; width: 12px; height: 12px; margin: 0 5px; border-radius: 50%; background-color: #8B5E3C; opacity: 0.4; transition: opacity 0.3s, transform 0.3s; cursor: pointer; }
+    .punto.activo { opacity: 1; transform: scale(1.2); }
+
+    .caja {
+      border: 2px solid #caa17d;
+      padding: 20px;
+      font-size: 1.2em;
+      margin: 30px 0;
+      font-weight: bold;
+      background-color: #f6e7d9;
+      color: #3B2A1D;
+      border-radius: 10px;
+    }
+
+    .boton-carrito {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 2px solid #caa17d;
+      padding-top: 20px;
+    }
+
+    .boton-carrito button {
+      background: linear-gradient(135deg, #8B5E3C, #caa17d);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .boton-carrito button:hover {
+      background: linear-gradient(135deg, #caa17d, #8B5E3C);
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #8B5E3C;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Novedades</h1>
+  <div class="topbar">
+    <a href="Inicio.html"><button>Inicio</button></a>
+    <a href="Importacion.html"><button>Importación</button></a>
+    <a href="Promociones.html"><button>Promociones</button></a>
+    <a href="Novedades.html"><button>Novedades</button></a>
+    <a href="Adquisicion.html"><button>Adquisición</button></a>
+    <a href="Usuario.html"><button>Usuario</button></a>
+  </div>
+</header>
+
+<main>
+  <p>Bienvenido a nuestro apartado de Novedades</p>
+</main>
+
+<div class="contenedor">
+  <div class="producto">
+    <h2>NOVEDADES</h2>
+
+    <div class="slider">
+      <button class="flecha" id="prev">&#9664;</button>
+      <div class="imagen">
+        <img id="img-slider" src="FotoMadera1.jpg" alt="Promo 1">
+      </div>
+      <button class="flecha" id="next">&#9654;</button>
+    </div>
+
+    <div class="puntos">
+      <span class="punto activo"></span>
+      <span class="punto"></span>
+      <span class="punto"></span>
+      <span class="punto"></span>
+      <span class="punto"></span>
+      <span class="punto"></span>
+    </div>
+
+    <div class="caja" id="descripcion">
+      ¡30% de descuento en mesas de roble!
+    </div>
+
+    <div class="boton-carrito">
+      <a href="Adquisicion.html"><button>ADQUISICIÓN</button></a>
+      <a href="Promociones.html"><button>PROMOCIONES</button></a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Comercial Inquisivi - Novedades y Tendencias
+  <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
+    💬 Contáctanos por WhatsApp
+  </a>
+</footer>
+
+<script>
+  const imagenes = ['FotoMadera1.jpg','FotoMadera2.jpg','Durmientes.jpg','MaderaLabrada.jpg','TablasMadera.jpg','FotoMadera3.jpg'];
+  const descripciones = [
+    'Nuevo lote disponible',
+    'Ajustes en las dimensiones de los tablones',
+    'Nuevos sectores ¡ya disponibles!',
+    'Lanzamiento exclusivo de vigas tratadas',
+    'Madera Labrada, ya disponible en 500 cm',
+    'Mayor diversidad en las dimensiones de los callapos'
+  ];
+
+  const imgSlider = document.getElementById('img-slider');
+  const descTexto = document.getElementById('descripcion');
+  const puntos = document.querySelectorAll('.punto');
+  let indice = 0;
+
+  function actualizarSlider(i){
+    imgSlider.src = imagenes[i];
+    descTexto.textContent = descripciones[i];
+    puntos.forEach((p, index) => p.classList.toggle('activo', index === i));
+  }
+
+  document.getElementById('prev').addEventListener('click', () => { indice = (indice - 1 + imagenes.length) % imagenes.length; actualizarSlider(indice); });
+  document.getElementById('next').addEventListener('click', () => { indice = (indice + 1) % imagenes.length; actualizarSlider(indice); });
+  puntos.forEach((punto, i) => { punto.addEventListener('click', () => { indice = i; actualizarSlider(indice); }); });
+</script>
+
+</body>
+</html>

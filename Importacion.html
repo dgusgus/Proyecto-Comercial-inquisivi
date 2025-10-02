@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Importación</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f1e4d3; color: #3B2A1D; }
+
+    /* ----- ENCABEZADO ----- */
+    header {
+      background-color: #8B5E3C; padding: 15px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      box-shadow:0 4px 12px rgba(0,0,0,0.25);
+    }
+    header h1 { color:#fff; font-size:1.8rem; }
+    .topbar { display:flex; gap:1.2rem; }
+    .topbar a { text-decoration:none; }
+    .topbar button {
+      background:transparent; border:none; color:#fff; font-weight:bold;
+      font-size:1rem; cursor:pointer; position:relative; padding:8px 12px; transition: color 0.3s ease;
+    }
+    .topbar button::after {
+      content:""; position:absolute; bottom:0; left:0; width:0; height:2px;
+      background-color:#d8b693; transition: width 0.3s ease;
+    }
+    .topbar button:hover { color:#f4e0cc; }
+    .topbar button:hover::after { width:100%; }
+
+    /* ----- CONTENIDO PRINCIPAL ----- */
+    main {
+      padding:30px; text-align:center; font-size:1.2rem; 
+      background-color:#d8b693; border-radius:12px; margin:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .contenedor {
+      display:flex; justify-content:center; align-items:center; padding:40px 20px;
+    }
+    .producto {
+      border:2px solid #caa17d; padding:30px;
+      background-color:#f6e7d9; width:100%; max-width:800px;
+      border-radius:15px; text-align:center; box-shadow:0 0 18px rgba(0,0,0,0.2);
+    }
+
+    .producto img {
+      width:100%; max-height:300px; object-fit:cover;
+      border:3px dashed #caa17d; border-radius:10px; margin-bottom:20px;
+    }
+
+    .mapa-link {
+      display:inline-block; color:#3B2A1D;
+      font-weight:bold; text-decoration:none; margin:15px 0;
+    }
+    .mapa-link:hover { text-decoration:underline; color:#8B5E3C; }
+
+    .producto h2 { color:#3B2A1D; font-size:28px; margin-bottom:20px; }
+
+    .producto ul {
+      text-align:left; margin:20px; font-size:18px; list-style:disc inside;
+    }
+    .producto ul li { margin:10px 0; }
+    .producto ul li a {
+      color:#3B2A1D; text-decoration:none; font-weight:bold;
+    }
+    .producto ul li a:hover { color:#8B5E3C; text-decoration:underline; }
+
+    .boton-carrito {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:15px;
+      border-top:2px solid #caa17d; padding-top:20px; margin-top:20px;
+    }
+    .boton-carrito button {
+      background:linear-gradient(135deg, #8B5E3C, #caa17d);
+      color:#fff; border:none; padding:12px 24px; font-size:16px;
+      font-weight:bold; cursor:pointer; border-radius:25px; transition:all 0.3s ease;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+    .boton-carrito button:hover {
+      background:linear-gradient(135deg, #caa17d, #8B5E3C); transform:scale(1.05);
+    }
+
+    /* ----- PIE DE PÁGINA ----- */
+    footer { 
+      background-color:#8B5E3C; 
+      color:#fff; 
+      padding:20px; 
+      text-align:center; 
+      margin-top:30px; 
+      display:flex; 
+      flex-direction:column; 
+      align-items:center; 
+      gap:10px;
+    }
+
+    .whatsapp-btn {
+      display:inline-block;
+      background-color:#25D366;
+      color:#fff;
+      padding:12px 20px;
+      border-radius:30px;
+      font-weight:bold;
+      text-decoration:none;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color:#1ebe5d;
+      transform:scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sección de Importación</h1>
+  <div class="topbar">
+    <a href="Inicio.html"><button>Inicio</button></a>
+    <a href="Importacion.html"><button>Importación</button></a>
+    <a href="Promociones.html"><button>Promociones</button></a>
+    <a href="Novedades.html"><button>Novedades</button></a>
+    <a href="Adquisicion.html"><button>Adquisición</button></a>
+    <a href="Usuario.html"><button>Usuario</button></a>
+  </div>
+</header>
+
+<main>
+  <p>Bienvenido a nuestro apartado de Importación de Madera</p>
+</main>
+
+<div class="contenedor">
+  <div class="producto">
+    <img src="MapaInquisivi.jpg" alt="Mapa de Importación">
+    <a class="mapa-link" href="https://www.google.com/maps/place/-17.968566,-67.095760" target="_blank">Ver ubicación de nuestras oficinas físicas en Google Maps</a>
+
+    <h2>Importación</h2>
+    <ul>
+      <li><a href="Origen.html">Origen del producto</a></li>
+      <li><a href="Proceso.html">Proceso de importación</a></li>
+      <li><a href="Aduana.html">Gestión aduanera</a></li>
+      <li><a href="Beneficios.html">Beneficios – Garantía de calidad</a></li>
+      <li><a href="PagoLogistica.html">Métodos de pago y logística</a></li>
+    </ul>
+
+    <div class="boton-carrito">
+      <a href="Adquisicion.html"><button>Adquisición</button></a>
+      <a href="Inicio.html"><button>Inicio</button></a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Comercial Inquisivi - Importación Sustentable
+  <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
+    💬 Contáctanos por WhatsApp
+  </a>
+</footer>
+
+</body>
+</html>
