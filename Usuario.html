@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro de Usuario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    body { background-color: #f1e4d3; color: #3B2A1D; display: flex; flex-direction: column; min-height: 100vh; }
+    body {
+      background-color: #f1e4d3;
+      color: #3B2A1D;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
     /* HEADER */
     header {
@@ -16,122 +26,172 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      flex-wrap: wrap;
     }
 
-    header h1 { color:#fff; font-size:1.8rem; }
+    header h1 {
+      color: #fff;
+      font-size: 1.8rem;
+      flex: 1;
+    }
 
-    .topbar { display:flex; gap:1.2rem; }
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
 
-    .topbar a { text-decoration: none; }
+    .topbar a {
+      text-decoration: none;
+    }
 
     .topbar button {
-      background:transparent; border:none; color:#fff; font-weight:bold; font-size:1rem;
-      cursor:pointer; position:relative; padding:8px 12px; transition: color 0.3s ease;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding: 8px 12px;
+      transition: color 0.3s ease;
     }
 
     .topbar button::after {
-      content:""; position:absolute; bottom:0; left:0; width:0; height:2px;
-      background-color:#d8b693; transition: width 0.3s ease;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #d8b693;
+      transition: width 0.3s ease;
     }
 
-    .topbar button:hover { color:#f4e0cc; }
-    .topbar button:hover::after { width:100%; }
+    .topbar button:hover {
+      color: #f4e0cc;
+    }
+
+    .topbar button:hover::after {
+      width: 100%;
+    }
 
     /* MAIN */
     main {
-      flex:1;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:40px;
-      background-color: #f1e4d3;
-      margin:20px;
-      border-radius:12px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
     }
 
     form {
-      background-color:#f6e7d9;
-      padding:30px;
-      border:2px solid #caa17d;
-      border-radius:15px;
-      box-shadow:0 0 18px rgba(0,0,0,0.2);
-      max-width:500px;
-      width:100%;
+      background-color: #f6e7d9;
+      padding: 30px;
+      border: 2px solid #caa17d;
+      border-radius: 15px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.2);
+      max-width: 500px;
+      width: 100%;
     }
 
     label {
-      display:block;
-      margin-top:15px;
-      font-size:1rem;
-      font-weight:bold;
-      color:#3B2A1D;
+      display: block;
+      margin-top: 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #3B2A1D;
     }
 
     input, select, textarea {
-      width:100%;
-      padding:10px;
-      margin-top:5px;
-      margin-bottom:15px;
-      border:2px solid #caa17d;
-      border-radius:6px;
-      background-color:#f0d9c3;
-      color:#3B2A1D;
-      font-size:1rem;
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 2px solid #caa17d;
+      border-radius: 6px;
+      background-color: #f0d9c3;
+      color: #3B2A1D;
+      font-size: 1rem;
     }
 
     input:focus, select:focus, textarea:focus {
-      outline:none;
-      border-color:#8B5E3C;
+      outline: none;
+      border-color: #8B5E3C;
     }
 
     .boton {
-      width:100%;
-      padding:12px;
-      background:linear-gradient(135deg, #8B5E3C, #caa17d);
-      border:none;
-      color:#fff;
-      font-weight:bold;
-      border-radius:25px;
-      cursor:pointer;
-      transition:all 0.3s ease;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #8B5E3C, #caa17d);
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .boton:hover {
-      background:linear-gradient(135deg, #caa17d, #8B5E3C);
-      transform:scale(1.05);
+      background: linear-gradient(135deg, #caa17d, #8B5E3C);
+      transform: scale(1.05);
     }
 
     /* FOOTER */
     footer {
-      background-color:#8B5E3C;
-      color:#fff;
-      padding:20px;
-      text-align:center;
-      margin-top:30px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:10px;
+      background-color: #8B5E3C;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
     .whatsapp-btn {
-      display:inline-block;
-      background-color:#25D366;
-      color:#fff;
-      padding:12px 20px;
-      border-radius:30px;
-      font-weight:bold;
-      text-decoration:none;
-      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+      background-color: #25D366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transition: background 0.3s ease, transform 0.2s ease;
     }
 
     .whatsapp-btn:hover {
-      background-color:#1ebe5d;
-      transform:scale(1.05);
+      background-color: #1ebe5d;
+      transform: scale(1.05);
     }
 
+    /* RESPONSIVE HEADER */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      header h1 {
+        text-align: left;
+        width: 100%;
+      }
+
+      .topbar {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .topbar button {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -149,7 +209,7 @@
 </header>
 
 <main>
-  <form action="#" method="post">
+  <form name="submit-to-google-sheet">
     <label for="nombre">Nombre completo:</label>
     <input type="text" id="nombre" name="nombre" required>
 
@@ -167,11 +227,23 @@
 </main>
 
 <footer>
-  © 2025 Comercial Inquisivi. Todos los derechos reservados.
+  © 2025 Flores Crispin Britany - Mendoza Antezana Kasandra. Todos los derechos reservados.
   <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
     💬 Contáctanos por WhatsApp
   </a>
 </footer>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyvLLw8m553QMntwHHUIHEjdiFM5_SU1AwoPSXw6tgGQkCQZry7JwLRXNdp4rwI8oxg/exec";
+  const form = document.forms["submit-to-google-sheet"];
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then(response => alert("✅ Registro enviado correctamente"))
+      .catch(error => alert("❌ Error al enviar el registro"));
+  });
+</script>
 
 </body>
 </html>

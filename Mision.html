@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Misión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * {
       margin: 0;
@@ -15,35 +16,68 @@
       background: url("FondoMision.jpg") no-repeat center center fixed;
       background-size: cover;
       color: #f5f0e6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* NAVBAR */
+    /* HEADER */
     header {
+      background-color: rgba(45, 25, 15, 0.85);
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 50px;
-      background: rgba(45, 25, 15, 0.8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
     }
 
-    header img {
-      height: 50px;
+    header h1 {
+      color: #fff;
+      font-size: 1.8rem;
+      flex: 1;
     }
 
     .topbar {
       display: flex;
-      gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: flex-end;
     }
 
     .topbar a {
       text-decoration: none;
-      color: #f5f0e6;
+    }
+
+    .topbar button {
+      background: transparent;
+      border: none;
+      color: #fff;
       font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+      padding: 8px 12px;
       transition: color 0.3s ease;
     }
 
-    .topbar a:hover {
-      color: #c9a66b;
+    .topbar button::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #d8b693;
+      transition: width 0.3s ease;
+    }
+
+    .topbar button:hover {
+      color: #f4e0cc;
+    }
+
+    .topbar button:hover::after {
+      width: 100%;
     }
 
     /* HERO */
@@ -57,14 +91,16 @@
       margin: 40px auto;
       max-width: 1200px;
       box-shadow: 0 0 25px rgba(0,0,0,0.7);
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .hero-text {
-      max-width: 50%;
+      max-width: 600px;
     }
 
     .hero-text h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: bold;
       margin-bottom: 20px;
     }
@@ -76,7 +112,6 @@
       color: #f1e6c5;
     }
 
-    /* BOTONES PRINCIPALES */
     .boton-principal {
       padding: 12px 25px;
       background: #c9a66b;
@@ -98,9 +133,8 @@
     }
 
     .hero-img {
-      width: 40%;
+      width: 300px;
       text-align: center;
-      position: relative;
     }
 
     .hero-img img {
@@ -114,47 +148,96 @@
 
     /* FOOTER */
     footer {
-      background: rgba(45, 25, 15, 0.85);
-      color: #f5f0e6;
+      background-color: #8B5E3C;
+      color: #fff;
       padding: 20px;
       text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transform: scale(1.05);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      header h1 {
+        width: 100%;
+        text-align: left;
+      }
+
+      .topbar {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .hero {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="Logo.jpg" alt="Logo">
-    <div class="topbar">
-      <a href="Inicio.html">Inicio</a>
-      <a href="Importacion.html">Importación</a>
-      <a href="Promociones.html">Promociones</a>
-      <a href="Novedades.html">Novedades</a>
-      <a href="Adquisicion.html">Adquisición</a>
-      <a href="Usuario.html">Usuario</a>
-    </div>
-  </header>
+<header>
+  <h1>Misión</h1>
+  <div class="topbar">
+    <a href="Inicio.html"><button>Inicio</button></a>
+    <a href="Importacion.html"><button>Importación</button></a>
+    <a href="Promociones.html"><button>Promociones</button></a>
+    <a href="Novedades.html"><button>Novedades</button></a>
+    <a href="Adquisicion.html"><button>Adquisición</button></a>
+    <a href="Usuario.html"><button>Usuario</button></a>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Misión</h1>
-      <p>El Comercial Inquisivi busca abastecer a las empresas mineras de Bolivia con productos de madera (principalmente eucalipto) de calidad, garantizando cumplimiento en tiempos de entrega, mejorando los procesos de compra y atención al cliente mediante la implementación de soluciones digitales que optimicen la gestión de ventas y fortalezcan la competitividad.</p>
-      <a href="Inicio.html"><button class="boton-principal">Inicio</button></a>
-      <a href="Vision.html"><button class="boton-principal">Visión</button></a>
-    </div>
-    <div class="hero-img">
-      <img src="MapaInquisivi.jpg" alt="Imagen destacada">
-    </div>
-  </section>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Misión</h1>
+    <p>El Comercial Inquisivi busca abastecer a las empresas mineras de Bolivia con productos de madera (principalmente eucalipto) de calidad, garantizando cumplimiento en tiempos de entrega, mejorando los procesos de compra y atención al cliente mediante la implementación de soluciones digitales que optimicen la gestión de ventas y fortalezcan la competitividad.</p>
+    <a href="Inicio.html"><button class="boton-principal">Inicio</button></a>
+    <a href="Vision.html"><button class="boton-principal">Visión</button></a>
+  </div>
+  <div class="hero-img">
+    <img src="MapaInquisivi.jpg" alt="Imagen destacada">
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Comercial Inquisivi. Todos los derechos reservados.
-  </footer>
+<footer>
+  © 2025 Flores Crispin Britany- Mendoza Antezana Kasandra. Todos los derechos reservados.
+  <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
+    💬 Contáctanos por WhatsApp
+  </a>
+</footer>
 
 </body>
 </html>

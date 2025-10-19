@@ -2,22 +2,47 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adquisición</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: #f1e4d3; color: #3B2A1D; }
-
-    header {
-      background-color: #8B5E3C; padding: 15px 40px;
-      display:flex; justify-content:space-between; align-items:center;
-      box-shadow:0 4px 12px rgba(0,0,0,0.25);
+    * {
+      margin:0; padding:0; box-sizing:border-box;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    header h1 { color:#fff; font-size:1.8rem; }
-    .topbar { display:flex; gap:1.2rem; }
+    body { background-color:#f1e4d3; color:#3B2A1D; }
+
+    /* ---------------- HEADER ---------------- */
+    header {
+      background-color:#8B5E3C;
+      padding:15px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 4px 12px rgba(0,0,0,0.25);
+      flex-wrap:nowrap;
+    }
+    header h1 {
+      color:#fff;
+      font-size:1.8rem;
+      white-space:nowrap;
+    }
+
+    .topbar {
+      display:flex;
+      gap:1rem;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      scrollbar-width:none;
+    }
+    .topbar::-webkit-scrollbar { display:none; }
+
     .topbar a { text-decoration:none; }
     .topbar button {
-      background:transparent; border:none; color:#fff; font-weight:bold;
-      font-size:1rem; cursor:pointer; position:relative; padding:8px 12px; transition: color 0.3s ease;
+      background:transparent; border:none; color:#fff;
+      font-weight:bold; font-size:1rem;
+      cursor:pointer; position:relative;
+      padding:8px 12px; transition: color 0.3s ease;
+      white-space:nowrap;
     }
     .topbar button::after {
       content:""; position:absolute; bottom:0; left:0; width:0; height:2px;
@@ -26,6 +51,7 @@
     .topbar button:hover { color:#f4e0cc; }
     .topbar button:hover::after { width:100%; }
 
+    /* ---------------- MAIN ---------------- */
     main {
       padding:30px; text-align:center; font-size:1.2rem; 
       background-color:#d8b693; border-radius:12px; margin:20px;
@@ -33,61 +59,122 @@
     }
 
     .contenedor {
-      display:flex; justify-content:center; align-items:center; padding:40px 20px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px 20px;
     }
     .producto {
-      border:2px solid #caa17d; padding:30px;
-      background-color:#f6e7d9; width:100%; max-width:800px;
-      border-radius:15px; text-align:center; box-shadow:0 0 18px rgba(0,0,0,0.2);
+      border:2px solid #caa17d;
+      padding:30px;
+      background-color:#f6e7d9;
+      width:100%;
+      max-width:800px;
+      border-radius:15px;
+      text-align:center;
+      box-shadow:0 0 18px rgba(0,0,0,0.2);
     }
 
-    /* CARRUSEL */
+    /* ---------------- CARRUSEL ---------------- */
     .imagen {
-      display:flex; align-items:center; justify-content:space-between;
-      border:2px solid #caa17d; padding:10px; height:300px;
-      margin-bottom:20px; background-color:#f0d9c3; border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border:2px solid #caa17d;
+      padding:10px;
+      height:auto;
+      min-height:250px;
+      margin-bottom:20px;
+      background-color:#f0d9c3;
+      border-radius:10px;
+      flex-wrap:nowrap;
     }
-    .imagen-contenido img { max-height:260px; max-width:100%; object-fit:contain; }
+    .imagen-contenido img {
+      max-height:260px;
+      max-width:100%;
+      object-fit:contain;
+      border-radius:10px;
+    }
     .flecha {
-      background:none; border:none; font-size:30px; color:#8B5E3C;
-      cursor:pointer; transition: color 0.3s;
+      background:none;
+      border:none;
+      font-size:30px;
+      color:#8B5E3C;
+      cursor:pointer;
+      transition: color 0.3s;
     }
     .flecha:hover { color:#3B2A1D; }
 
-    .puntos { text-align:center; margin:15px 0; }
-    .punto { display:inline-block; width:12px; height:12px; margin:0 5px;
-      border-radius:50%; background-color:#8B5E3C; opacity:0.4;
+    .puntos {
+      text-align:center;
+      margin:15px 0;
+    }
+    .punto {
+      display:inline-block;
+      width:12px; height:12px; margin:0 5px;
+      border-radius:50%;
+      background-color:#8B5E3C;
+      opacity:0.4;
       transition: opacity 0.3s, transform 0.3s;
     }
-    .punto.activo { opacity:1; transform:scale(1.2); }
+    .punto.activo {
+      opacity:1;
+      transform:scale(1.2);
+    }
 
-    .nombre-producto { text-align:center; font-size:28px; color:#3B2A1D; margin-bottom:10px; }
-    .detalles { font-size:18px; margin-bottom:20px; text-align:left; color:#3B2A1D; }
-    .detalles p, .detalles ul { margin-left:20px; }
+    .nombre-producto {
+      text-align:center;
+      font-size:28px;
+      color:#3B2A1D;
+      margin-bottom:10px;
+    }
+    .detalles {
+      font-size:18px;
+      margin-bottom:20px;
+      text-align:left;
+      color:#3B2A1D;
+    }
+    .detalles p, .detalles ul {
+      margin-left:20px;
+    }
 
+    /* ---------------- BOTONES ---------------- */
     .boton-carrito {
-      display:flex; flex-wrap:wrap; justify-content:center; gap:15px;
-      border-top:2px solid #caa17d; padding-top:20px; margin-top:20px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:15px;
+      border-top:2px solid #caa17d;
+      padding-top:20px;
+      margin-top:20px;
     }
     .boton-carrito button {
       background:linear-gradient(135deg, #8B5E3C, #caa17d);
-      color:#fff; border:none; padding:12px 24px; font-size:16px;
-      font-weight:bold; cursor:pointer; border-radius:25px; transition:all 0.3s ease;
+      color:#fff;
+      border:none;
+      padding:12px 24px;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      border-radius:25px;
+      transition:all 0.3s ease;
       box-shadow:0 4px 10px rgba(0,0,0,0.2);
     }
     .boton-carrito button:hover {
-      background:linear-gradient(135deg, #caa17d, #8B5E3C); transform:scale(1.05);
+      background:linear-gradient(135deg, #caa17d, #8B5E3C);
+      transform:scale(1.05);
     }
 
-    footer { 
-      background-color:#8B5E3C; 
-      color:#fff; 
-      padding:20px; 
-      text-align:center; 
-      margin-top:30px; 
-      display:flex; 
-      flex-direction:column; 
-      align-items:center; 
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background-color:#8B5E3C;
+      color:#fff;
+      padding:20px;
+      text-align:center;
+      margin-top:30px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
       gap:10px;
     }
 
@@ -105,6 +192,50 @@
     .whatsapp-btn:hover {
       background-color:#1ebe5d;
       transform:scale(1.05);
+    }
+
+    /* ---------------- MEDIA QUERIES ---------------- */
+    @media (max-width: 1024px) {
+      header {
+        padding:15px 20px;
+      }
+      header h1 { font-size:1.5rem; }
+      .topbar button { font-size:0.95rem; }
+      .producto { padding:20px; }
+    }
+
+    @media (max-width: 768px) {
+      .topbar { gap:0.5rem; justify-content:flex-end; }
+      header h1 { font-size:1.3rem; }
+      main { font-size:1rem; padding:20px; margin:15px; }
+      .producto { padding:15px; }
+      .imagen { flex-direction:column; height:auto; }
+      .flecha { font-size:24px; }
+      .nombre-producto { font-size:22px; }
+      .detalles { font-size:16px; }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-wrap:nowrap;
+        padding:10px 15px;
+      }
+      header h1 {
+        font-size:1rem;
+      }
+      .topbar {
+        gap:0.3rem;
+        overflow-x:auto;
+      }
+      .topbar button {
+        font-size:0.85rem;
+        padding:5px 8px;
+      }
+      .boton-carrito button {
+        font-size:14px;
+        padding:10px 18px;
+      }
+      footer { font-size:0.9rem; }
     }
   </style>
 </head>
@@ -149,7 +280,7 @@
 </div>
 
 <footer>
-  &copy; 2025 Comercial Inquisivi - Adquisición Sustentable
+  &copy; 2025 Flores Crispin Britany - Mendoza Antezana Kasandra. Todos los derechos reservados.
   <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
     💬 Contáctanos por WhatsApp
   </a>
@@ -170,7 +301,6 @@ const btnDer = document.querySelector('.flecha.derecha');
 const nombreProducto = document.querySelector('.nombre-producto');
 const detalles = document.querySelector('.detalles');
 
-// Crear puntos según cantidad de productos
 productos.forEach((_, i) => {
   const punto = document.createElement('span');
   punto.classList.add('punto');

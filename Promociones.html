@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Promociones</title>
   <style>
     /* -------- PALETA DE ADQUISICIÓN --------
@@ -22,6 +23,9 @@
     body {
       background-color: #f1e4d3;
       color: #3B2A1D;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* HEADER */
@@ -32,17 +36,21 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      flex-wrap: wrap;
     }
 
     header h1 {
       color: #fff;
       font-size: 1.8rem;
+      white-space: nowrap;
     }
 
     /* TOPBAR */
     .topbar {
       display: flex;
-      gap: 1.2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
     }
 
     .topbar a {
@@ -82,6 +90,7 @@
 
     /* MAIN */
     main {
+      flex: 1;
       padding: 30px;
       text-align: center;
       font-size: 1.2rem;
@@ -163,12 +172,10 @@
       color: #fff;
       padding: 15px;
       text-align: center;
-      margin-top: 30px;
-      position: relative;
+      margin-top: auto;
     }
 
     /* BOTÓN WHATSAPP */
-    
     .whatsapp-btn {
       display:inline-block;
       background-color:#25D366;
@@ -180,9 +187,32 @@
       box-shadow:0 4px 8px rgba(0,0,0,0.2);
       transition: background 0.3s ease, transform 0.2s ease;
     }
+
     .whatsapp-btn:hover {
       background-color:#1ebe5d;
       transform:scale(1.05);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .topbar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .topbar button {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -223,14 +253,15 @@
       <img src="Durmientes.jpg" alt="Oferta por tiempo limitado">
       <h2>OFERTA LIMITADA</h2>
       <p>Promoción válida solo por tiempo limitado, ¡aprovéchala ahora!</p>
-      <a href="file:///C:/Users/usuario/Desktop/KasBrit/Mision.html"><button class="boton">Misión</button></a>
+      <a href="Adquisicion.html"><button class="boton">ADQUIRIR</button></a>
     </div>
   </div>
 
   <footer>
-   &copy; 2025 Comercial Inquisivi - Importación Sustentable
-  <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
-    💬 Contáctanos por WhatsApp
+    &copy; 2025 Flores Crispin Britany - Mendoza Antezana Kasandra. Todos los derechos reservados. <br><br>
+    <a class="whatsapp-btn" href="https://wa.me/59162770449?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20los%20productos" target="_blank">
+      💬 Contáctanos por WhatsApp
+    </a>
   </footer>
 
 </body>

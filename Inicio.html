@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio</title>
   <style>
+    /* RESET GENERAL */
     * {
       margin: 0;
       padding: 0;
@@ -12,27 +14,44 @@
     }
 
     body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       background: url("https://i.pinimg.com/1200x/97/48/1d/97481df1ef87d86527e7da28e5dfefda.jpg") no-repeat center center fixed;
       background-size: cover;
       color: #f5f0e6;
     }
 
-    /* NAVBAR */
+    main {
+      flex: 1;
+    }
+
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 50px;
+      padding: 15px 5%;
       background: rgba(45, 25, 15, 0.8);
+      overflow-x: auto; /* permite scroll si hay muchos enlaces */
+      white-space: nowrap; /* evita que salten de línea */
+    }
+
+    header::-webkit-scrollbar {
+      display: none; /* oculta la barra de desplazamiento */
     }
 
     header img {
       height: 50px;
+      flex-shrink: 0;
     }
 
     .topbar {
       display: flex;
+      flex-wrap: nowrap;
       gap: 1.5rem;
+      align-items: center;
+      margin-left: auto;
     }
 
     .topbar a {
@@ -40,6 +59,7 @@
       color: #f5f0e6;
       font-weight: bold;
       transition: color 0.3s ease;
+      font-size: 1rem;
     }
 
     .topbar a:hover {
@@ -51,7 +71,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 60px 10%;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 60px 5%;
       background: rgba(45, 25, 15, 0.75);
       border-radius: 20px;
       margin: 40px auto;
@@ -60,13 +82,14 @@
     }
 
     .hero-text {
-      max-width: 50%;
+      flex: 1 1 300px;
+      text-align: center;
     }
 
     .hero-text h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .hero-text p {
@@ -76,7 +99,6 @@
       color: #f1e6c5;
     }
 
-    /* BOTONES PRINCIPALES */
     .boton-principal {
       padding: 12px 25px;
       background: #c9a66b;
@@ -87,7 +109,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
-      margin-right: 15px;
+      margin: 5px;
     }
 
     .boton-principal:hover {
@@ -98,9 +120,8 @@
     }
 
     .hero-img {
-      width: 40%;
+      flex: 1 1 250px;
       text-align: center;
-      position: relative;
     }
 
     .hero-img img {
@@ -112,70 +133,45 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
 
-    /* SECCIÓN PROMOCIONES */
-    .promocion {
-      border: 2px solid #c9a66b;
-      background: rgba(45, 25, 15, 0.8);
-      color: #f5f0e6;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 900px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
-    }
-
-    .contenido {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .imagen-promo {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #c9a66b;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    }
-
-    .texto {
-      flex: 1;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #f1e6c5;
-    }
-
-    .boton {
-      width: 100%;
-      padding: 12px;
-      text-align: center;
-      background: #c9a66b;
-      border: none;
-      color: #2d1a0f;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .boton:hover {
-      background: #a67c42;
-      color: #fff;
-    }
-
     /* FOOTER */
     footer {
       background: rgba(45, 25, 15, 0.85);
       color: #f5f0e6;
-      padding: 20px;
+      padding: 1rem;
       text-align: center;
-      margin-top: 40px;
       font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-img img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .boton-principal {
+        width: 80%;
+      }
+
+      .topbar a {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -194,22 +190,24 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Comercial Inquisivi</h1>
-      <p>Llevamos la calidad de la madera boliviana a todo el país.</p>
-      <a href="Mision.html"><button class="boton-principal">Misión</button></a>
-      <a href="Vision.html"><button class="boton-principal">Visión</button></a>
-    </div>
-    <div class="hero-img">
-      <img src="MapaInquisivi.jpg" alt="Imagen destacada">
-    </div>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Comercial Inquisivi</h1>
+        <p>Llevamos la calidad de la madera boliviana a todo el país.</p>
+        <a href="Mision.html"><button class="boton-principal">Misión</button></a>
+        <a href="Vision.html"><button class="boton-principal">Visión</button></a>
+      </div>
+      <div class="hero-img">
+        <img src="MapaInquisivi.jpg" alt="Imagen destacada">
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    © 2025 Comercial Inquisivi. Todos los derechos reservados.
+    © 2025 Flores Crispin Britany - Mendoza Antezana Kasandra. Todos los derechos reservados.
   </footer>
 
 </body>
